@@ -522,7 +522,7 @@ public class AtualizarClass {
             }
 
             // importa os dados
-            ConverterUtils.DataSource source = new ConverterUtils.DataSource("dados.arff");
+            ConverterUtils.DataSource source = new ConverterUtils.DataSource("C:\\Users\\PICHAU\\Documents\\NetBeansProjects\\ClassificaClientesWeka\\ClassificaClientesWeka\\ClassificaClientesJava\\src\\br\\unesp\\rc\\classificaclientes\\dados.arff");
             //Instances D = source.getDataSet();
             Instances D = new Instances(source.getDataSet());
 
