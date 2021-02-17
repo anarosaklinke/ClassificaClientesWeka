@@ -54,14 +54,11 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="cpf" min="-2" pref="400" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                                      <Component id="telefone" min="-2" pref="400" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="telefone" alignment="0" min="-2" pref="451" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="26" max="32767" attributes="0"/>
+                      <EmptySpace min="87" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">

@@ -42,7 +42,6 @@ public class GerarSuporte extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setClosable(true);
@@ -50,18 +49,9 @@ public class GerarSuporte extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 204));
-        jButton1.setText("Gerar Suporte 30 Dia");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 0, 204));
-        jButton2.setText("Gerar Suporte 1 Dia");
+        jButton2.setText("Gerar Suporte");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -72,27 +62,17 @@ public class GerarSuporte extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(96, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(94, 94, 94))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(94, 94, 94)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(96, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(95, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(148, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(21, 21, 21)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(163, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         pack();
@@ -141,48 +121,6 @@ public class GerarSuporte extends javax.swing.JInternalFrame {
 
     }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-
-        ClienteCidadeService entity = ServiceFactory.getClienteCidadeService();
-
-        long IdCliente;
-
-        java.util.Date d = new java.util.Date();
-        d.getTime();
-        Calendar cal = new GregorianCalendar();
-        cal.setTime(d);
-        java.sql.Date data = new java.sql.Date(cal.getTimeInMillis());
-
-        IdCliente = entity.recuperaUltimoId();
-        System.out.println(IdCliente);
-
-        Random aleatorio = new Random();
-        int cliente, tipo;
-
-        for (int i = 0; i < 100 * 30; i++) {
-
-            try {
-                System.out.println("-------------");
-                cliente = aleatorio.nextInt((int) IdCliente) + 1;
-
-                tipo = aleatorio.nextInt(111) + 1;
-
-                System.out.println(cliente);
-                System.out.println(tipo);
-
-                CadastrarSuporte(1, data, "Gerado Aleatoriamente", "15", (long) cliente, (long) tipo);
-                //JOptionPane.showMessageDialog(null, "Suporte Cadastrado!");
-            } catch (ParseException ex) {
-                Logger.getLogger(GerarSuporte.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Erro!");
-            }
-
-        }
-        JOptionPane.showMessageDialog(null, "Suporte Cadastrado!");
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
 
@@ -208,7 +146,7 @@ public class GerarSuporte extends javax.swing.JInternalFrame {
             try {
                 System.out.println("-------------");
 
-                tipo = aleatorio.nextInt(111) + 1;
+                tipo = aleatorio.nextInt(16) + 1;
 
                 System.out.println(cliente);
                 System.out.println(tipo);
@@ -221,70 +159,13 @@ public class GerarSuporte extends javax.swing.JInternalFrame {
             }
 
         }
-
-        for (int i = 0; i < 30; i++) {
-            cliente = 1 + 1;
-            try {
-                System.out.println("-------------");
-
-                tipo = 107;
-
-                System.out.println(cliente);
-                System.out.println(tipo);
-
-                CadastrarSuporte(1, data, "Gerado Aleatoriamente", "15", (long) cliente, (long) tipo);
-                //JOptionPane.showMessageDialog(null, "Suporte Cadastrado!");
-            } catch (ParseException ex) {
-                Logger.getLogger(GerarSuporte.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Erro!");
-            }
-
-        }
-
-        for (int i = 0; i < 100; i++) {
-            cliente = 1 + 1;
-            try {
-                System.out.println("-------------");
-
-                tipo = 108;
-
-                System.out.println(cliente);
-                System.out.println(tipo);
-
-                CadastrarSuporte(1, data, "Gerado Aleatoriamente", "15", (long) cliente, (long) tipo);
-                //JOptionPane.showMessageDialog(null, "Suporte Cadastrado!");
-            } catch (ParseException ex) {
-                Logger.getLogger(GerarSuporte.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Erro!");
-            }
-
-        }
-
-        for (int i = 0; i < 100; i++) {
-            cliente = 1 + 1;
-            try {
-                System.out.println("-------------");
-
-                tipo = 109;
-
-                System.out.println(cliente);
-                System.out.println(tipo);
-
-                CadastrarSuporte(1, data, "Gerado Aleatoriamente", "15", (long) cliente, (long) tipo);
-                //JOptionPane.showMessageDialog(null, "Suporte Cadastrado!");
-            } catch (ParseException ex) {
-                Logger.getLogger(GerarSuporte.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Erro!");
-            }
-
-        }
+ 
 
         JOptionPane.showMessageDialog(null, "Suporte Cadastrado!");
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     // End of variables declaration//GEN-END:variables
 }

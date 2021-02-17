@@ -466,17 +466,15 @@ public class CadastrarUsuario extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
-        if ((nome.getText().isEmpty()) ||
-            (cpf.getText().isEmpty()) ||
-            (dataNascimento.getText().isEmpty()) ||
-            (usuario.getText().isEmpty()) ||
-            (senha.getText().isEmpty()) ||
-            (farmacia.getText().isEmpty()) ||
-            (cidadeFarmacia.getText().isEmpty())
-        ) {
+        if ((nome.getText().isEmpty())
+                || (cpf.getText().isEmpty())
+                || (dataNascimento.getText().isEmpty())
+                || (usuario.getText().isEmpty())
+                || (senha.getText().isEmpty())
+                || (farmacia.getText().isEmpty())
+                || (cidadeFarmacia.getText().isEmpty())) {
             JOptionPane.showMessageDialog(null, "Os campos com * são OBRIGATÒRIOS");
-        }
-        else {
+        } else {
 
             PessoaService entity = ServiceFactory.getPessoaService();
             LoginService entity2 = ServiceFactory.getLoginService();
@@ -490,11 +488,10 @@ public class CadastrarUsuario extends javax.swing.JInternalFrame {
 
             /*seta id de cliente*/
             idPessoa = entity.recuperaUltimoId();
-            if(idPessoa == -1)
-            {idPessoa = 1;
-            }
-            else
-            {idPessoa++;
+            if (idPessoa == -1) {
+                idPessoa = 1;
+            } else {
+                idPessoa++;
             }
             Pessoa pessoa = new Pessoa(idPessoa);
 
@@ -506,11 +503,11 @@ public class CadastrarUsuario extends javax.swing.JInternalFrame {
             /*seta data de nascimento*/
             d = dataNascimento.getText();
             String[] lista;
-            lista =  d.split("/");
+            lista = d.split("/");
             Calendar cal = Calendar.getInstance();
             int temp = Integer.parseInt(lista[0]);
 
-            cal.set(Calendar.DAY_OF_MONTH,  temp);
+            cal.set(Calendar.DAY_OF_MONTH, temp);
             temp = Integer.parseInt(lista[1]);
             temp--;
             cal.set(Calendar.MONTH, temp);
@@ -529,7 +526,7 @@ public class CadastrarUsuario extends javax.swing.JInternalFrame {
             idade = p.getYears();
             System.out.println("idade = " + idade);
 
-            pessoa.setSexo( (sexo.getSelectedItem()).toString() );
+            pessoa.setSexo((sexo.getSelectedItem()).toString());
             pessoa.setCpf(cpf.getText());
             pessoa.setDataNascimento(data);
             pessoa.setIdade(idade);
@@ -537,11 +534,10 @@ public class CadastrarUsuario extends javax.swing.JInternalFrame {
 
             /*recupera id de Login*/
             long idLogin = entity2.recuperaUltimoId();
-            if(idLogin == -1)
-            {idLogin = 1;
-            }
-            else
-            {idLogin++;
+            if (idLogin == -1) {
+                idLogin = 1;
+            } else {
+                idLogin++;
             }
 
             /*seta informações de Login endereco login não é administrador*/
@@ -553,20 +549,18 @@ public class CadastrarUsuario extends javax.swing.JInternalFrame {
 
             /*recupera id de endereco*/
             long idEndereco = entity3.recuperaUltimoId();
-            if(idEndereco == -1)
-            {idEndereco = 1;
-            }
-            else
-            {idEndereco++;
+            if (idEndereco == -1) {
+                idEndereco = 1;
+            } else {
+                idEndereco++;
             }
 
             /*recupera id de Cliente*/
             long idCliente = entity5.recuperaUltimoId();
-            if(idCliente == -1)
-            {idCliente = 1;
-            }
-            else
-            {idCliente++;
+            if (idCliente == -1) {
+                idCliente = 1;
+            } else {
+                idCliente++;
             }
 
             ClienteCidade clienteCidade = new ClienteCidade(idCliente);
@@ -576,11 +570,10 @@ public class CadastrarUsuario extends javax.swing.JInternalFrame {
 
             /*recupera id de ClassificacaoCliente*/
             long idClassifica = entity6.recuperaUltimoId();
-            if(idClassifica == -1)
-            {idClassifica = 1;
-            }
-            else
-            {idClassifica++;
+            if (idClassifica == -1) {
+                idClassifica = 1;
+            } else {
+                idClassifica++;
             }
 
             ClassificacaoCliente classifica = new ClassificacaoCliente(idClassifica);
@@ -599,39 +592,39 @@ public class CadastrarUsuario extends javax.swing.JInternalFrame {
             /*cria endereço*/
             Endereco endereco = new Endereco(idEndereco);
 
-            if (bairro.getText().isEmpty()){
+            if (bairro.getText().isEmpty()) {
                 endereco.setCidade(null);
-            }else{
+            } else {
                 endereco.setCidade(bairro.getText());
             }
-            if (cep.getText().isEmpty()){
+            if (cep.getText().isEmpty()) {
                 endereco.setCidade(null);
-            }else{
+            } else {
                 endereco.setCidade(cep.getText());
             }
-            if (cidade.getText().isEmpty()){
+            if (cidade.getText().isEmpty()) {
                 endereco.setCidade(null);
-            }else{
+            } else {
                 endereco.setCidade(cidade.getText());
             }
-            if (estado.getText().isEmpty()){
+            if (estado.getText().isEmpty()) {
                 endereco.setEstado(null);
-            }else{
+            } else {
                 endereco.setEstado(estado.getText());
             }
-            if (rua.getText().isEmpty()){
+            if (numero.getText().isEmpty()) {
                 endereco.setNumero(0);
-            }else{
-                endereco.setNumero(Integer.parseInt(rua.getText()));
+            } else {
+                endereco.setNumero(Integer.parseInt(numero.getText()));
             }
-            if (numero.getText().isEmpty()){
+            if (rua.getText().isEmpty()) {
                 endereco.setRua(null);
-            }else{
-                endereco.setRua(numero.getText());
+            } else {
+                endereco.setRua(rua.getText());
             }
-            if (pais.getText().isEmpty()){
+            if (pais.getText().isEmpty()) {
                 endereco.setPais(null);
-            }else{
+            } else {
                 endereco.setPais(pais.getText());
             }
 
@@ -639,35 +632,34 @@ public class CadastrarUsuario extends javax.swing.JInternalFrame {
 
             /*cria Contato*/
             long idContato = entity4.recuperaUltimoId();
-            if(idContato == -1)
-            {idContato = 1;
-            }
-            else
-            {idContato++;
+            if (idContato == -1) {
+                idContato = 1;
+            } else {
+                idContato++;
             }
             Contato contato = new Contato(idContato);
 
-            if (residencial.getText().isEmpty()){
+            if (residencial.getText().isEmpty()) {
                 residencial = null;
             }
 
             contato.setTelRes(residencial.getText());
 
-            if (comercial.getText().isEmpty()){
+            if (comercial.getText().isEmpty()) {
                 contato.setTelCom(null);
-            }else{
+            } else {
                 contato.setTelCom(comercial.getText());
             }
 
-            if (celular.getText().isEmpty()){
+            if (celular.getText().isEmpty()) {
                 contato.setCelular(null);
-            }else{
+            } else {
                 contato.setCelular(celular.getText());
             }
 
-            if (email.getText().isEmpty()){
+            if (email.getText().isEmpty()) {
                 contato.setEmail(null);
-            }else{
+            } else {
                 contato.setEmail(email.getText());
             }
 
@@ -676,39 +668,38 @@ public class CadastrarUsuario extends javax.swing.JInternalFrame {
             /*salva Login no banco de dados*/
             boolean b;
             b = entity2.save(login);
-            if(b == false)
-            {System.out.println("Erro: Login não foi salvo no banco de dados ");
+            if (b == false) {
+                System.out.println("Erro: Login não foi salvo no banco de dados ");
             }
 
             /*salva Endereco no banco de dados*/
             b = entity3.save(endereco);
-            if(b == false)
-            {System.out.println("Erro: Endereco não foi salvo no banco de dados ");
+            if (b == false) {
+                System.out.println("Erro: Endereco não foi salvo no banco de dados ");
             }
 
             /*salva Contato no banco de dados*/
             b = entity4.save(contato);
-            if(b == false)
-            {System.out.println("Erro: Contato não foi salvo no banco de dados ");
+            if (b == false) {
+                System.out.println("Erro: Contato não foi salvo no banco de dados ");
             }
 
             /*salva Pessoa no banco de dados*/
             b = entity.save(pessoa);
-            if(b == false)
-            {System.out.println("Erro: Cliente não foi salvo no banco de dados ");
-            }
-            else
-            {System.out.println("Cliente cadastrado com sucesso ");
+            if (b == false) {
+                System.out.println("Erro: Cliente não foi salvo no banco de dados ");
+            } else {
+                System.out.println("Cliente cadastrado com sucesso ");
             }
 
             b = entity6.save(classifica);
-            if(b == false)
-            {System.out.println("Erro: classifica não foi salvo no banco de dados ");
+            if (b == false) {
+                System.out.println("Erro: classifica não foi salvo no banco de dados ");
             }
 
             b = entity5.save(clienteCidade);
-            if(b == false)
-            {System.out.println("Erro: clienteCidade não foi salvo no banco de dados ");
+            if (b == false) {
+                System.out.println("Erro: clienteCidade não foi salvo no banco de dados ");
             }
 
             nome.setText("");
@@ -729,7 +720,7 @@ public class CadastrarUsuario extends javax.swing.JInternalFrame {
             celular.setText("");
             farmacia.setText("");
             dataNascimento.setText("");
-            
+
             JOptionPane.showMessageDialog(null, "Cliente Cadastrado!");
 
         }
