@@ -32,6 +32,8 @@ import weka.core.converters.ConverterUtils;
  * Relatorio SNGPC Integracao Client Crediario Ecommerce PBM Servidor Geral
  */
 public class AtualizarClassificacao extends javax.swing.JInternalFrame {
+    
+    final private String aquivo = "C:\\Users\\PICHAU\\Documents\\NetBeansProjects\\ClassificaClientes\\Dados.arff";
 
     /**
      * Creates new form AtualizarClassificacao
@@ -51,7 +53,7 @@ public class AtualizarClassificacao extends javax.swing.JInternalFrame {
 
         REPtree = new javax.swing.JToggleButton();
         JK48 = new javax.swing.JToggleButton();
-        jToggleButton4 = new javax.swing.JToggleButton();
+        RandomForest = new javax.swing.JToggleButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -77,12 +79,12 @@ public class AtualizarClassificacao extends javax.swing.JInternalFrame {
             }
         });
 
-        jToggleButton4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jToggleButton4.setForeground(new java.awt.Color(0, 0, 204));
-        jToggleButton4.setText("REPTree");
-        jToggleButton4.addActionListener(new java.awt.event.ActionListener() {
+        RandomForest.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        RandomForest.setForeground(new java.awt.Color(0, 0, 204));
+        RandomForest.setText("RandomForest");
+        RandomForest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton4ActionPerformed(evt);
+                RandomForestActionPerformed(evt);
             }
         });
 
@@ -91,23 +93,27 @@ public class AtualizarClassificacao extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(158, 158, 158)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JK48, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(REPtree, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(193, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JK48, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(REPtree, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addComponent(RandomForest)))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addContainerGap()
                 .addComponent(JK48, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(REPtree, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addGap(35, 35, 35)
+                .addComponent(RandomForest, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
 
         pack();
@@ -230,7 +236,7 @@ public class AtualizarClassificacao extends javax.swing.JInternalFrame {
             // importa os dados
             ConverterUtils.DataSource source = null;
             try {
-                source = new ConverterUtils.DataSource("C:\\Users\\PICHAU\\Documents\\NetBeansProjects\\ClassificaClientes\\dados.arff");
+                source = new ConverterUtils.DataSource(aquivo);
             } catch (Exception ex) {
                 Logger.getLogger(AtualizarClassificacao.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -455,7 +461,7 @@ public class AtualizarClassificacao extends javax.swing.JInternalFrame {
             // importa os dados
             ConverterUtils.DataSource source = null;
             try {
-                source = new ConverterUtils.DataSource("C:\\Users\\PICHAU\\Documents\\NetBeansProjects\\ClassificaClientes\\dados.arff");
+                source = new ConverterUtils.DataSource(aquivo);
             } catch (Exception ex) {
                 Logger.getLogger(AtualizarClassificacao.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -475,7 +481,6 @@ public class AtualizarClassificacao extends javax.swing.JInternalFrame {
 
             // Construção do modelo classificador
             J48 k3 = new J48();
-            REPTree k4 = new REPTree();
             try {
                 k3.buildClassifier(D);
             } catch (Exception ex) {
@@ -565,7 +570,7 @@ public class AtualizarClassificacao extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_JK48ActionPerformed
 
-    private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
+    private void RandomForestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RandomForestActionPerformed
                ClienteCidadeService entity = ServiceFactory.getClienteCidadeService();
 
         TipoSuporteService entity2 = ServiceFactory.getTipoSuporteService();
@@ -682,7 +687,7 @@ public class AtualizarClassificacao extends javax.swing.JInternalFrame {
             // importa os dados
             ConverterUtils.DataSource source = null;
             try {
-                source = new ConverterUtils.DataSource("C:\\Users\\PICHAU\\Documents\\NetBeansProjects\\ClassificaClientes\\dados.arff");
+                source = new ConverterUtils.DataSource(aquivo);
             } catch (Exception ex) {
                 Logger.getLogger(AtualizarClassificacao.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -789,12 +794,12 @@ public class AtualizarClassificacao extends javax.swing.JInternalFrame {
         }
         JOptionPane.showMessageDialog(null, "Atualização Atualizada!");
 
-    }//GEN-LAST:event_jToggleButton4ActionPerformed
+    }//GEN-LAST:event_RandomForestActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton JK48;
     private javax.swing.JToggleButton REPtree;
-    private javax.swing.JToggleButton jToggleButton4;
+    private javax.swing.JToggleButton RandomForest;
     // End of variables declaration//GEN-END:variables
 }
