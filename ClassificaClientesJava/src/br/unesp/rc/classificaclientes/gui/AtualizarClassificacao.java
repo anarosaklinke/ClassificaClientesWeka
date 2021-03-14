@@ -33,7 +33,8 @@ import weka.core.converters.ConverterUtils;
  */
 public class AtualizarClassificacao extends javax.swing.JInternalFrame {
     
-    final private String aquivo = "C:\\Users\\PICHAU\\Documents\\NetBeansProjects\\ClassificaClientes\\Dados.arff";
+    final private String aquivo = "C:\\Users\\PICHAU\\Documents\\NetBeansProjects\\ClassificaClientesWeka\\ClassificaClientesWeka\\"
+            + "ClassificaClientesJava\\DadosTreinamento\\Dados.arff";
 
     /**
      * Creates new form AtualizarClassificacao
@@ -226,7 +227,7 @@ public class AtualizarClassificacao extends javax.swing.JInternalFrame {
                     case "Servidor":
                         Servidor++;
                         break;
-                    case "Geral2":
+                    case "Geral":
                         Geral++;
                         break;
                 }
@@ -451,7 +452,7 @@ public class AtualizarClassificacao extends javax.swing.JInternalFrame {
                     case "Servidor":
                         Servidor++;
                         break;
-                    case "Geral2":
+                    case "Geral":
                         Geral++;
                         break;
                 }
@@ -677,7 +678,7 @@ public class AtualizarClassificacao extends javax.swing.JInternalFrame {
                     case "Servidor":
                         Servidor++;
                         break;
-                    case "Geral2":
+                    case "Geral":
                         Geral++;
                         break;
                 }
