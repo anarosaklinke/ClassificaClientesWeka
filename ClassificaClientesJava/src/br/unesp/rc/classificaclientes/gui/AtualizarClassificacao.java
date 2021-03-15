@@ -227,7 +227,7 @@ public class AtualizarClassificacao extends javax.swing.JInternalFrame {
                     case "Servidor":
                         Servidor++;
                         break;
-                    case "Geral":
+                    case "Geral2":
                         Geral++;
                         break;
                 }
@@ -452,7 +452,7 @@ public class AtualizarClassificacao extends javax.swing.JInternalFrame {
                     case "Servidor":
                         Servidor++;
                         break;
-                    case "Geral":
+                    case "Geral2":
                         Geral++;
                         break;
                 }
@@ -678,7 +678,7 @@ public class AtualizarClassificacao extends javax.swing.JInternalFrame {
                     case "Servidor":
                         Servidor++;
                         break;
-                    case "Geral":
+                    case "Geral2":
                         Geral++;
                         break;
                 }
